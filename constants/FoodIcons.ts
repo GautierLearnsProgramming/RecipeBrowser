@@ -1,0 +1,10 @@
+export const foodIcons = new Map();
+foodIcons.set('pasta', require('../assets/135541-gastronomy-set/png/pasta.png'))
+foodIcons.set('fruit', require('../assets/135541-gastronomy-set/png/apple-1.png'))
+foodIcons.set('meat', require('../assets/135541-gastronomy-set/png/steak.png'))
+foodIcons.set('bread', require('../assets/135541-gastronomy-set/png/bread.png'))
+foodIcons.set('ham', require('../assets/135541-gastronomy-set/png/bacon.png'))
+foodIcons.set('cheese', require('../assets/135541-gastronomy-set/png/cheese-1.png'))
+foodIcons.set('cream', require('../assets/135541-gastronomy-set/png/milk-1.png'))
+foodIcons.set('spice', require('../assets/135541-gastronomy-set/png/pepper-1.png'))
+foodIcons.set('onion', require('../assets/135541-gastronomy-set/png/onion.png'))
