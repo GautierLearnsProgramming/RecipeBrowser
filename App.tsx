@@ -8,18 +8,14 @@ import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 import {light} from "./theme";
 import
-  {Nunito_700Bold,
+  {  Nunito_700Bold,
   Nunito_600SemiBold,
   Nunito_400Regular,
-  useFonts} from "@expo-google-fonts/dev";
+  useFonts } from "@expo-google-fonts/dev";
 import AppLoading from "expo-app-loading";
-import RecipeComponent from "./components/Recipe.component";
-import {Recipe} from "./types/recipe";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import TabOneScreen from "./screens/TabOneScreen";
 import {NavigationContainer, DefaultTheme} from "@react-navigation/native";
-
-
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -29,13 +25,8 @@ export default function App() {
   })
 
   const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
 
   const Stack = createNativeStackNavigator();
-
-
-
-
 
   if (!isLoadingComplete || !fontsLoaded) {
     return <AppLoading/>;

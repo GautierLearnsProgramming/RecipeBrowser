@@ -4,7 +4,7 @@ import {Recipe} from "../types/recipe";
 import styled from "styled-components";
 import IngredientComponent from "./Ingredient.component";
 import { useTheme } from "@react-navigation/native";
-import {ThemeProps} from "react-native-elements";
+import {Icon, ThemeProps} from "react-native-elements";
 import StyledText from "./TextComponents/StyledText";
 
 export interface RecipeProps{
@@ -32,25 +32,35 @@ function RecipeComponent({recipe}: RecipeProps) {
   </ThumbailImageContainer>
 
   return (
-    <RecipeBox>
-      <TitleContainer>
-        <RecipeTitle style = {{fontSize: theme.text.h1Size}}>
-          {recipe.title}
-        </RecipeTitle>
-      </TitleContainer>
-      {recipe.thumbnail && thumbnail}
-      {recipe.ingredients.map((ingredient) =>
-        <IngredientContainer key={ingredient.name}>
-          <IngredientComponent icon={ingredient.icon} name={ingredient.name} quantity={ingredient.quantity} unit={ingredient.unit}/>
-        </IngredientContainer>
-      )}
-      {recipe.instructions && instructions}
-    </RecipeBox>
+      <>
+        <TitleContainer>
+          <IconContainer>
+            <Icon name={'arrow-back'}/>
+          </IconContainer>
+          <RecipeTitle style = {{fontSize: theme.text.h1Size}}>
+            {recipe.title}
+          </RecipeTitle>
+        </TitleContainer>
+        <RecipeBox>
+          {recipe.thumbnail && thumbnail}
+          {recipe.ingredients.map((ingredient) =>
+            <IngredientContainer key={ingredient.name}>
+              <IngredientComponent icon={ingredient.icon} name={ingredient.name} quantity={ingredient.quantity} unit={ingredient.unit}/>
+            </IngredientContainer>
+          )}
+          {recipe.instructions && instructions}
+        </RecipeBox>
+      </>
   );
 }
 
+const IconContainer = styled(View)`
+margin-right: 15px;
+`
+
 const TitleContainer = styled(View)`
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-top: 15px;
