@@ -1,26 +1,64 @@
 import { DefaultTheme, DarkTheme, ExtendedTheme } from '@react-navigation/native';
+import {extendTheme} from "native-base";
 
-export const light = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: 'rgb(216, 11, 140)',
-    secondary: 'rgb(0, 174, 239)',
-    tertiary: 'rgb(34, 31, 114)',
-    danger: 'rgb(208, 2, 27)',
-    background: 'rgb(239, 238, 244)',
-    card: 'rgb(255, 255, 255)',
-    text: 'rgb(30, 30, 30)',
-    subtext: 'rgb(172, 172, 172)',
-    recipeInstructionText: 'rgb(120, 120, 120)',
-    separator: 'rgb(194, 194, 195)',
-    highlight: 'rgb(199, 198, 203)',
-    grey5: '#F5F5F5'
+export const theme = extendTheme({
+  fontConfig: {
+    Nunito: {
+      100: {
+        normal: 'Nunito_200ExtraLight',
+        italic: 'Nunito_200ExtraLight_Italic',
+      },
+      200: {
+        normal: 'Nunito_200ExtraLight',
+        italic: 'Nunito_200ExtraLight_Italic',
+      },
+      300: {
+        normal: 'Nunito_300Light',
+        italic: 'Nunito_300Light_Italic',
+      },
+      400: {
+        normal: 'Nunito_400Regular',
+        italic: 'Nunito_400Regular_Italic',
+      },
+      500: {
+        normal: 'Nunito_400Regular',
+        italic: 'Nunito_400Regular_Italic'
+      },
+      600: {
+        normal: 'Nunito_600SemiBold',
+        italic: 'Nunito_600SemiBold_Italic',
+      },
+      700: {
+        normal: 'Nunito_700Bold',
+        italic: 'Nunito_700Bold_Italic'
+      },
+      800: {
+        normal: 'Nunito_800ExtraBold',
+        italic: 'Nunito_800ExtraBold_Italic',
+      },
+      900: {
+        normal: 'Nunito_900Black',
+        italic: 'Nunito_900Black_Italic',
+      },
+    },
   },
-  text: {
-    primaryFont: 'Nunito700Bold',
-    h1Size: 30,
-    titleSize: 26,
-    textSize: 20
-  }
-};
+
+  // Make sure values below matches any of the keys in `fontConfig`
+  fonts: {
+    heading: 'Nunito',
+    body: 'Nunito',
+    mono: 'Nunito',
+  },
+})
+
+export const reactNavigationTheme = {
+  dark: false,
+  colors: {
+    primary: 'rgb(255, 45, 85)',
+    background: 'rgb(255, 255, 255)',
+    card: 'rgb(255, 255, 255)',
+    text: 'rgb(28, 28, 30)',
+    border: 'rgb(199, 199, 204)',
+    notification: 'rgb(255, 69, 58)',
+  },
+}

@@ -1,0 +1,25 @@
+type Ingredient @model {
+  id: ID!
+  name: String!
+  unit: String!
+  icon: String
+  recipes: [IngredientRecipe] @connection(keyName: "byIngredient", fields: ["id"])
+}
+
+type IngredientRecipe
+@model(queries: null)
+@key(name: "byRecipe", fields: ["recipeID", "ingredientID"])
+@key(name: "byIngredient", fields: ["ingredientID", "recipeID"]) {
+  id: ID!
+  recipeID: ID!
+  ingredientID: ID!
+  recipe: Recipe! @connection(fields: ["recipeID"])
+  ingredient: Ingredient! @connection(fields: ["ingredientID"])
+}
+
+type Recipe @model {
+  id: ID!
+  name: String!
+  instructions: String
+  ingredients: [IngredientRecipe] @connection(keyName: "byRecipe", fields: ["id"])
+}

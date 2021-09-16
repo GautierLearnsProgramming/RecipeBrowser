@@ -2,10 +2,11 @@ import React from 'react';
 import {ScrollView, View, Image} from "react-native";
 import {Recipe} from "../types/recipe";
 import styled from "styled-components";
-import IngredientComponent from "./Ingredient.component";
-import { useTheme } from "@react-navigation/native";
-import {Icon, ThemeProps} from "react-native-elements";
+import IngredientComponent from "./Ingredient/Ingredient.component";
+import {ArrowBackIcon} from "native-base";
+
 import StyledText from "./TextComponents/StyledText";
+import {useTheme} from "native-base";
 
 export interface RecipeProps{
   thumbnail?: any,
@@ -14,10 +15,10 @@ export interface RecipeProps{
 
 function RecipeComponent({recipe}: RecipeProps) {
 
-  const theme = useTheme();
+  const theme = useTheme()
 
   const instructions = <InstructionContainer theme={theme}>
-    <StyledText style = {{fontSize: theme.text.titleSize}}>
+    <StyledText style = {{fontSize: 26}}>
       Instructions :
     </StyledText>
     <InstructionSubContainer>
@@ -35,9 +36,9 @@ function RecipeComponent({recipe}: RecipeProps) {
       <>
         <TitleContainer>
           <IconContainer>
-            <Icon name={'arrow-back'}/>
+            <ArrowBackIcon/>
           </IconContainer>
-          <RecipeTitle style = {{fontSize: theme.text.h1Size}}>
+          <RecipeTitle style = {{fontSize: 30}}>
             {recipe.title}
           </RecipeTitle>
         </TitleContainer>
@@ -94,8 +95,8 @@ const IngredientContainer = styled(View)`
   margin-bottom: 15px;
 `
 
-const InstructionContainer = styled(View)<{theme: ThemeProps<any>}>`
-  background-color: ${props => props.theme.colors.grey5};
+const InstructionContainer = styled(View)<{theme: any}>`
+  background-color: ${(props) => props.theme.colors.warmGray[100]};
   border-radius: 20px;
   padding: 5px 20px 10px 20px;
 `
